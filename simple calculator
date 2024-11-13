@@ -1,1 +1,45 @@
+#include <stdio.h>
 
+void displayMenu() {
+    printf("\n*** Simple Calculator ***\n");
+    printf("Choose an option:\n");
+    printf("1. Addition (+)\n");
+    printf("2. Subtraction (-)\n");
+    printf("3. Exit\n");
+    printf("Enter your choice: ");
+}
+
+int main() {
+    int choice;
+    double num1, num2, result;
+
+    while (1) {
+        displayMenu();
+        scanf("%d", &choice);
+
+        if (choice == 3) {
+            printf("Exiting the calculator. Thank you!\n");
+            break;
+        }
+
+        printf("Enter two numbers: ");
+        scanf("%lf %lf", &num1, &num2);
+
+        switch (choice) {
+            case 1:
+                result = num1 + num2;
+                printf("Result: %.2lf + %.2lf = %.2lf\n", num1, num2, result);
+                break;
+
+            case 2:
+                result = num1 - num2;
+                printf("Result: %.2lf - %.2lf = %.2lf\n", num1, num2, result);
+                break;
+
+            default:
+                printf("Invalid choice. Please try again.\n");
+        }
+    }
+
+    return 0;
+}
